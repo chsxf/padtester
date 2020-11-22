@@ -6,15 +6,13 @@
 //
 
 import Cocoa
+import GameController
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        GCController.startWirelessControllerDiscovery()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

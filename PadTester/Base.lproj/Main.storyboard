@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="PadTester" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +705,64 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="PadTester" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mfP-Cm-Xjx">
+                                <rect key="frame" x="18" y="73" width="664" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="CWN-yy-BgB">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mpt-gL-5d1">
+                                <rect key="frame" x="18" y="41" width="665" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="9ya-FA-cye" id="OGs-eq-sRe">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="C8B-o7-lNk">
+                                        <items>
+                                            <menuItem title="Item 1" state="on" id="9ya-FA-cye"/>
+                                            <menuItem title="Item 2" id="9sh-xh-W77"/>
+                                            <menuItem title="Item 3" id="2Ao-R7-Ugc"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M25-MB-PoN">
+                                <rect key="frame" x="18" y="20" width="664" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="I5y-uS-WfD">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="mfP-Cm-Xjx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="1IP-u8-rX6"/>
+                            <constraint firstAttribute="trailing" secondItem="mfP-Cm-Xjx" secondAttribute="trailing" constant="20" symbolic="YES" id="DEl-WG-fF3"/>
+                            <constraint firstItem="Mpt-gL-5d1" firstAttribute="top" secondItem="mfP-Cm-Xjx" secondAttribute="bottom" constant="8" symbolic="YES" id="Z51-ah-5SH"/>
+                            <constraint firstItem="M25-MB-PoN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="lG2-RV-Ggf"/>
+                            <constraint firstAttribute="trailing" secondItem="M25-MB-PoN" secondAttribute="trailing" constant="20" symbolic="YES" id="meg-of-Mz4"/>
+                            <constraint firstItem="M25-MB-PoN" firstAttribute="top" secondItem="Mpt-gL-5d1" secondAttribute="bottom" constant="8" symbolic="YES" id="n4m-f8-mTs"/>
+                            <constraint firstAttribute="bottom" secondItem="M25-MB-PoN" secondAttribute="bottom" constant="20" symbolic="YES" id="qSG-Pm-8w7"/>
+                            <constraint firstItem="Mpt-gL-5d1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="rd3-3i-M9E"/>
+                            <constraint firstItem="mfP-Cm-Xjx" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="vVa-Xx-c0e"/>
+                            <constraint firstAttribute="trailing" secondItem="Mpt-gL-5d1" secondAttribute="trailing" constant="20" symbolic="YES" id="vcp-c4-U4V"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="controllerCount" destination="mfP-Cm-Xjx" id="rgg-xR-jA2"/>
+                        <outlet property="controllerDetails" destination="M25-MB-PoN" id="Wrq-bb-eDG"/>
+                        <outlet property="controllerList" destination="Mpt-gL-5d1" id="oer-Ll-YBy"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="185" y="655"/>
         </scene>
     </scenes>
 </document>
