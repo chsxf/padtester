@@ -27,6 +27,10 @@ class ViewController: NSViewController {
         center.addObserver(forName: .GCControllerDidDisconnect, object: nil, queue: mainQueue) { (notif) in
             self.updateControllers();
         }
+        
+        center.addObserver(forName: NSPopUpButton.willPopUpNotification, object: controllerList!, queue: mainQueue) { (notif) in
+            self.updateControllerDetails(newController: GCController.controllers()[self.controllerList!.indexOfSelectedItem]);
+        };
     }
 
     override var representedObject: Any? {
@@ -169,7 +173,20 @@ class ViewController: NSViewController {
             return "";
         }
         
-        return "A button: \(pad.buttonA.isPressed)";
+        var detailList : [String] = [];
+        
+        detailList.append("Dpad:");
+        detailList.append("    Up: \(pad.dpad.up.isPressed) (\(pad.dpad.up.value))");
+        detailList.append("    Down: \(pad.dpad.down.isPressed) (\(pad.dpad.down.value))");
+        detailList.append("    Left: \(pad.dpad.left.isPressed) (\(pad.dpad.left.value))");
+        detailList.append("    Right: \(pad.dpad.right.isPressed) (\(pad.dpad.right.value))");
+        detailList.append("");
+        detailList.append("A button: \(pad.buttonA.isPressed) (\(pad.buttonA.value))");
+        detailList.append("X button: \(pad.buttonX.isPressed) (\(pad.buttonX.value))");
+        detailList.append("");
+        detailList.append("Menu button: \(pad.buttonMenu.isPressed)");
+        
+        return detailList.joined(separator: "\n");
     }
     
 }
