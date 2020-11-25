@@ -27,10 +27,6 @@ class ViewController: NSViewController {
         center.addObserver(forName: .GCControllerDidDisconnect, object: nil, queue: mainQueue) { (notif) in
             self.updateControllers();
         }
-        
-        center.addObserver(forName: NSPopUpButton.willPopUpNotification, object: controllerList!, queue: mainQueue) { (notif) in
-            self.updateControllerDetails(newController: GCController.controllers()[self.controllerList!.indexOfSelectedItem]);
-        };
     }
 
     override var representedObject: Any? {
@@ -43,6 +39,12 @@ class ViewController: NSViewController {
         updateControllers();
     }
     
+	@IBAction func popUpSelectionDidChange(_ sender: NSPopUpButton) {
+		let index = sender.indexOfSelectedItem;
+		let controller = GCController.controllers()[index];
+		updateControllerDetails(newController: controller);
+	}
+	
     private func updateControllers() {
         controllerCount?.stringValue = "Controllers: \(GCController.controllers().count)";
         
@@ -53,10 +55,14 @@ class ViewController: NSViewController {
         }
         else {
             controllerList?.isEnabled = true;
+			var first = true;
             for (index, controller) in GCController.controllers().enumerated() {
                 controllerList?.addItem(withTitle: "\(index + 1): \(controller.vendorName!)");
+				if (first) {
+					updateControllerDetails(newController: controller);
+					first = false;
+				}
             }
-            updateControllerDetails(newController: GCController.controllers()[0]);
         }
     }
     

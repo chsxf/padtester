@@ -706,7 +706,7 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="PadTester" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                    <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="700" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -731,6 +731,9 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="popUpSelectionDidChange:" target="XfG-lQ-9wD" id="bcd-Bd-n6P"/>
+                                </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M25-MB-PoN">
                                 <rect key="frame" x="18" y="20" width="664" height="16"/>
@@ -742,7 +745,7 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="mfP-Cm-Xjx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="1IP-u8-rX6"/>
+                            <constraint firstItem="mfP-Cm-Xjx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="19" id="1IP-u8-rX6"/>
                             <constraint firstAttribute="trailing" secondItem="mfP-Cm-Xjx" secondAttribute="trailing" constant="20" symbolic="YES" id="DEl-WG-fF3"/>
                             <constraint firstItem="Mpt-gL-5d1" firstAttribute="top" secondItem="mfP-Cm-Xjx" secondAttribute="bottom" constant="8" symbolic="YES" id="Z51-ah-5SH"/>
                             <constraint firstItem="M25-MB-PoN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="lG2-RV-Ggf"/>
